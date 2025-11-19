@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri Ân Thầy Quang - 20/11 | Lớp 9A6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #b22222;
+            --primary-dark: #8b1a1a;
+            --secondary: #f8b500;
+            --accent: #2c5530;
+            --light: #fff9e6;
+            --dark: #333;
+            --gold: #ffd700;
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow-light: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-fast: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fceabb 0%, #f8b500 50%, #ffd700 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            border: 5px solid white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: conic-gradient(from 0deg, var(--gold), var(--secondary), var(--gold));
+            border-radius: 50%;
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
+
+        .logo i {
+            font-size: 50px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(150px, 40vw);
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
+            color: var(--accent);
+            margin-top: 25px;
+            font-weight: 500;
+        }
+
+        /* Login Section */
+        #loginSection {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px);
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin: 30px auto;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 18px;
+            background: rgba(255,255,255,0.8);
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-light);
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.2);
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(178, 34, 34, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(178, 34, 34, 0.4);
+        }
+
+        .btn i {
+            font-size: 18px;
+        }
+
+        .login-info {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(248, 181, 0, 0.1), rgba(178, 34, 34, 0.1));
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            font-size: clamp(0.85rem, 3vw, 0.9rem);
+        }
+
+        /* Greeting Section */
+        #greetingSection {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        .greeting-card {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: clamp(40px, 6vw, 60px) clamp(30px, 5vw, 50px);
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .greeting-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--gold));
+        }
+
+        .greeting-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 700;
+            animation: swing 3s infinite ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Wish Section */
+        #wishSection {
+            display: none;
+            padding: 40px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        .wish-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(30px, 4vw, 50px);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .wish-text {
+            flex: 1;
+            min-width: min(100%, 350px);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: clamp(30px, 4vw, 50px) clamp(25px, 3vw, 40px);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .wish-text:before, .wish-text:after {
+            content: '"';
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 6rem);
+            color: rgba(248, 181, 0, 0.3);
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .wish-text:before {
+            top: 15px;
+            left: 20px;
+        }
+
+        .wish-text:after {
+            bottom: 15px;
+            right: 20px;
+        }
+
+        .wish-content {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            line-height: 1.7;
+            color: var(--dark);
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wish-signature {
+            font-family: 'Dancing Script', cursive;
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 25px;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-container {
+            flex: 1;
+            min-width: min(100%, 350px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .wish-image {
+            max-width: 100%;
+            max-height: min(400px, 60vh);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateX(30px) scale(0.95);
+            transition: var(--transition);
+            margin-bottom: 20px;
+            border: 5px solid white;
+            object-fit: cover;
+        }
+
+        .wish-image.show {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        .image-placeholder {
+            width: min(100%, 350px);
+            height: min(250px, 40vh);
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            border: 3px dashed #ddd;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .image-placeholder:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .image-placeholder i {
+            font-size: clamp(40px, 8vw, 50px);
+            margin-bottom: 12px;
+        }
+
+        /* Admin Panel */
+        #adminPanel {
+            display: none;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: clamp(30px, 4vw, 50px) clamp(25px, 3vw, 40px);
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 40px auto;
+            animation: fadeInUp 1s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .admin-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .admin-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-section {
+            margin: 25px 0;
+            padding: 25px;
+            border: 2px dashed rgba(0,0,0,0.1);
+            border-radius: 15px;
+            background: rgba(255,255,255,0.5);
+            transition: var(--transition);
+        }
+
+        .admin-section:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .admin-section h4 {
+            margin-bottom: 15px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255,255,255,0.8);
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            resize: vertical;
+            min-height: 120px;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.2);
+            outline: none;
+            transform: translateY(-2px);
+        }
+
+        .color-picker {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-input-button {
+            background: linear-gradient(135deg, var(--accent), #1e3a24);
+            color: white;
+            padding: 14px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(44, 85, 48, 0.3);
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .file-input-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 85, 48, 0.4);
+        }
+
+        .current-image-info {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+            font-size: clamp(0.85rem, 3vw, 0.9rem);
+        }
+
+        .current-image-info:hover {
+            transform: translateX(5px);
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: min(250px, 40vh);
+            margin-top: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            border: 3px solid white;
+            object-fit: contain;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .action-buttons .btn {
+            max-width: 200px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent), #1e3a24);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            color: var(--dark);
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            border-top: 2px solid rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        /* Creator Signature - Hidden but present */
+        .creator-signature {
+            position: fixed;
+            bottom: 8px;
+            right: 10px;
+            font-size: 11px;
+            color: rgba(0,0,0,0.3);
+            z-index: 1000;
+            font-family: 'Inter', sans-serif;
+            pointer-events: none;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .creator-signature:hover {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes swing {
+            0% { transform: rotate(2deg); }
+            50% { transform: rotate(-2deg); }
+            100% { transform: rotate(2deg); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        /* Floating elements */
+        .floating {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .floating-1 {
+            top: 10%;
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-2 {
+            top: 20%;
+            right: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-3 {
+            bottom: 20%;
+            left: 8%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .floating-4 {
+            bottom: 10%;
+            right: 7%;
+            animation: float 9s ease-in-out infinite;
+        }
+
+        /* Background patterns */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(178, 34, 34, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(248, 181, 0, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 0 20px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo i {
+                font-size: 40px;
+            }
+            
+            .btn {
+                padding: 14px 25px;
+            }
+            
+            .action-buttons {
+                gap: 10px;
+            }
+            
+            .action-buttons .btn {
+                min-width: 140px;
+                font-size: 0.9rem;
+            }
+            
+            .admin-section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .wish-container {
+                gap: 25px;
+            }
+
+            .creator-signature {
+                bottom: 5px;
+                right: 8px;
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            #loginSection, 
+            .greeting-card,
+            .wish-text,
+            #adminPanel {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+            
+            .floating {
+                display: none;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-buttons .btn {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .creator-signature {
+                bottom: 3px;
+                right: 5px;
+                font-size: 9px;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) {
+            .btn:hover {
+                transform: none;
+            }
+            
+            .admin-section:hover {
+                transform: none;
+            }
+            
+            .current-image-info:hover {
+                transform: none;
+            }
+            
+            .image-placeholder:hover {
+                transform: none;
+            }
+            
+            .input-group input:focus {
+                transform: none;
+            }
+            
+            textarea:focus {
+                transform: none;
+            }
+        }
+
+        /* High DPI screen optimizations */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo:before {
+                animation-duration: 2s;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .logo:before {
+                animation: none;
+            }
+            
+            .floating {
+                animation: none;
+            }
+            
+            .greeting-text {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Pattern -->
+    <div class="bg-pattern"></div>
+
+    <!-- Creator Signature - Hidden in corner -->
+    <div class="creator-signature">created by khoapug</div>
+
+    <!-- Floating decorative elements -->
+    <div class="floating floating-1">
+        <i class="fas fa-heart" style="font-size: clamp(30px, 5vw, 45px); color: var(--primary);"></i>
+    </div>
+    <div class="floating floating-2">
+        <i class="fas fa-star" style="font-size: clamp(25px, 4vw, 40px); color: var(--secondary);"></i>
+    </div>
+    <div class="floating floating-3">
+        <i class="fas fa-book" style="font-size: clamp(35px, 6vw, 50px); color: var(--accent);"></i>
+    </div>
+    <div class="floating floating-4">
+        <i class="fas fa-graduation-cap" style="font-size: clamp(30px, 5vw, 45px); color: var(--primary);"></i>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1>Tri Ân Thầy Quang</h1>
+            <p class="subtitle">Nhân ngày Nhà giáo Việt Nam 20/11</p>
+        </header>
+
+        <!-- Login Section -->
+        <section id="loginSection">
+            <h2 style="margin-bottom: 20px; color: var(--primary); font-family: 'Playfair Display', serif;">Đăng Nhập</h2>
+            <div class="input-group">
+                <label for="user"><i class="fas fa-user"></i> Tài khoản</label>
+                <input id="user" type="text" placeholder="Nhập tài khoản của bạn">
+            </div>
+            <div class="input-group">
+                <label for="pass"><i class="fas fa-lock"></i> Mật khẩu</label>
+                <input id="pass" type="password" placeholder="Nhập mật khẩu của bạn">
+            </div>
+            <button class="btn" onclick="login()">
+                <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+            </button>
+            <p id="loginMsg" style="color:red; margin-top: 15px; font-weight: 600;"></p>
+            
+            <div class="login-info">
+                <p><strong>Hướng dẫn đăng nhập:</strong></p>
+                <p><i class="fas fa-user"></i> Người dùng: Tài khoản: <strong>1</strong>, Mật khẩu: <strong>1</strong></p>
+                <p><i class="fas fa-user-shield"></i> Quản trị viên: Tài khoản: <strong>2</strong>, Mật khẩu: <strong>2</strong></p>
+            </div>
+        </section>
+
+        <!-- Greeting Section -->
+        <section id="greetingSection">
+            <div class="greeting-card">
+                <div class="greeting-text">
+                    ✨ Lời Chúc Từ Lớp 9A6 ✨
+                </div>
+                <button class="btn" onclick="showWish()">
+                    <i class="fas fa-gift"></i> Mở Lời Chúc Đặc Biệt
+                </button>
+            </div>
+        </section>
+
+        <!-- Wish Section -->
+        <section id="wishSection">
+            <div class="wish-container">
+                <div class="wish-text">
+                    <div class="wish-content" id="finalWish"></div>
+                    <div class="wish-signature">Lớp 9A6 kính tặng</div>
+                </div>
+                <div class="image-container">
+                    <img id="finalImg" class="wish-image" alt="Hình ảnh tri ân">
+                    <div id="imagePlaceholder" class="image-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span style="font-size: clamp(0.9rem, 3vw, 1.1rem); font-weight: 600;">Chưa có hình ảnh</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Panel -->
+        <section id="adminPanel">
+            <div class="admin-header">
+                <h3 class="admin-title">
+                    <i class="fas fa-crown"></i> Quản Lý Nội Dung
+                </h3>
+                <span style="color: var(--accent); font-weight: 600; font-size: clamp(0.9rem, 3vw, 1.1rem);">Quyền Quản Trị Viên</span>
+            </div>
+            
+            <div class="admin-section">
+                <h4><i class="fas fa-edit"></i> Chỉnh Sửa Lời Chúc</h4>
+                <textarea id="wishInput" placeholder="Nhập lời chúc trang trọng và ý nghĩa..."></textarea>
+                <div class="color-picker">
+                    <label for="colorInput" style="font-weight: 600;">Màu sắc lời chúc:</label>
+                    <input id="colorInput" type="color" value="#b22222">
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h4><i class="fas fa-image"></i> Quản Lý Hình Ảnh</h4>
+                <p style="margin-bottom: 15px; color: #666;">Chỉ quản trị viên được phép thay đổi hình ảnh</p>
+                
+                <div class="file-input-wrapper">
+                    <div class="file-input-button">
+                        <i class="fas fa-cloud-upload-alt"></i> Chọn Hình Ảnh Mới
+                    </div>
+                    <input id="imgInput" type="file" accept="image/*">
+                </div>
+                
+                <div id="fileName" style="margin: 12px 0; font-style: italic; color: #666; font-weight: 500; text-align: center;"></div>
+                
+                <img id="imagePreview" class="image-preview" alt="Xem trước hình ảnh">
+                
+                <div class="current-image-info" id="currentImageInfo">
+                    <i class="fas fa-info-circle"></i> <strong>Trạng thái:</strong> Chưa có hình ảnh được tải lên
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn" onclick="updateWish()">
+                    <i class="fas fa-save"></i> Lưu Thay Đổi
+                </button>
+                <button class="btn btn-secondary" onclick="resetWish()">
+                    <i class="fas fa-undo"></i> Khôi Phục
+                </button>
+                <button class="btn btn-danger" onclick="removeImage()">
+                    <i class="fas fa-trash"></i> Xóa Ảnh
+                </button>
+            </div>
+            <p id="adminMsg" style="color:green; margin-top: 20px; text-align: center; font-weight: 600;"></p>
+        </section>
+    </div>
+
+    <footer>
+        <p style="margin-bottom: 8px;">Trang web được thiết kế với ❤️ dành tặng thầy Quang nhân ngày 20/11</p>
+        <p style="font-family: 'Dancing Script', cursive; font-size: clamp(1.1rem, 3vw, 1.3rem);">Lớp 9A6 - Năm học 2025-2026</p>
+    </footer>
+
+    <script>
+        // ---- Khởi tạo và lấy dữ liệu từ localStorage ----
+        let wishData = {
+            text: "Nhân ngày Nhà giáo Việt Nam 20/11, tập thể lớp 9A6 xin gửi đến thầy Quang lời tri ân sâu sắc nhất. Thầy không chỉ là người truyền đạt tri thức mà còn là người cha, người thầy thứ hai, luôn dìu dắt, nâng đỡ chúng em trên từng bước đường. Những bài học quý báu, những lời động viên chân thành, và cả những nghiêm khắc cần thiết đã giúp chúng em trưởng thành hơn mỗi ngày. Kính chúc thầy luôn dồi dào sức khỏe, tràn đầy niềm vui và hạnh phúc, tiếp tục thắp sáng những ước mơ cho thế hệ trẻ Việt Nam.",
+            color: "#b22222",
+            img: {src: "", name: ""}
+        };
+
+        // Hàm lấy dữ liệu từ localStorage
+        function loadWishData() {
+            const savedData = localStorage.getItem('wishData');
+            if (savedData) {
+                wishData = JSON.parse(savedData);
+            }
+            return wishData;
+        }
+
+        // Hàm lưu dữ liệu vào localStorage
+        function saveWishData() {
+            localStorage.setItem('wishData', JSON.stringify(wishData));
+        }
+
+        // Tải dữ liệu khi trang được tải
+        window.addEventListener('DOMContentLoaded', function() {
+            loadWishData();
+            // Điền dữ liệu vào form admin nếu có
+            if (document.getElementById("wishInput")) {
+                document.getElementById("wishInput").value = wishData.text;
+                document.getElementById("colorInput").value = wishData.color;
+                
+                // Hiển thị thông tin ảnh hiện tại
+                updateImageInfo();
+                
+                // Hiển thị preview ảnh nếu có
+                if (wishData.img.src) {
+                    document.getElementById("imagePreview").src = wishData.img.src;
+                    document.getElementById("imagePreview").style.display = "block";
+                    document.getElementById("fileName").textContent = "Tên file: " + (wishData.img.name || "Ảnh đã tải lên");
+                }
+            }
+            
+            // Xử lý sự kiện khi chọn file ảnh mới
+            document.getElementById("imgInput").addEventListener("change", function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    document.getElementById("fileName").textContent = "Tên file: " + file.name;
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        document.getElementById("imagePreview").src = event.target.result;
+                        document.getElementById("imagePreview").style.display = "block";
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        // Cập nhật thông tin ảnh
+        function updateImageInfo() {
+            const currentImageInfo = document.getElementById("currentImageInfo");
+            if (wishData.img.src) {
+                currentImageInfo.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Trạng thái:</strong> Đã có hình ảnh được tải lên';
+            } else {
+                currentImageInfo.innerHTML = '<i class="fas fa-info-circle"></i> <strong>Trạng thái:</strong> Chưa có hình ảnh được tải lên';
+            }
+        }
+
+        function login() {
+            let u = document.getElementById("user").value;
+            let p = document.getElementById("pass").value;
+            let msg = document.getElementById("loginMsg");
+
+            if (u === "1" && p === "1") { 
+                msg.innerText = "🎉 Đăng nhập thành công với quyền Người dùng!"; 
+                msg.style.color = "green";
+                showGreeting(); 
+            }
+            else if (u === "2" && p === "2") { 
+                msg.innerText = "👑 Đăng nhập thành công với quyền Quản trị viên!"; 
+                msg.style.color = "green";
+                showGreeting(); 
+                document.getElementById("adminPanel").style.display = "block";
+            }
+            else {
+                msg.innerText = "❌ Tài khoản hoặc mật khẩu không chính xác!";
+                msg.style.color = "red";
+            }
+        }
+
+        function showGreeting(){
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("greetingSection").style.display = "block";
+        }
+
+        function showWish(){
+            document.getElementById("greetingSection").style.display = "none";
+            document.getElementById("adminPanel").style.display = "none";
+
+            const wishSection = document.getElementById("wishSection");
+            const fw = document.getElementById("finalWish");
+            const imgEl = document.getElementById("finalImg");
+            const placeholder = document.getElementById("imagePlaceholder");
+            
+            // Hiển thị lời chúc
+            fw.innerText = wishData.text;
+            fw.style.color = wishData.color;
+            wishSection.style.display = "block";
+            
+            // Hiển thị ảnh nếu có
+            if (wishData.img.src) {
+                imgEl.src = wishData.img.src;
+                imgEl.style.display = "block";
+                placeholder.style.display = "none";
+                
+                // Thêm hiệu ứng xuất hiện từ từ sau 0.5 giây
+                setTimeout(() => {
+                    imgEl.classList.add("show");
+                }, 500);
+            } else {
+                imgEl.style.display = "none";
+                placeholder.style.display = "flex";
+            }
+        }
+
+        function updateWish(){
+            let newWish = document.getElementById("wishInput").value;
+            let color = document.getElementById("colorInput").value;
+            let imgFile = document.getElementById("imgInput").files[0];
+
+            if (newWish) wishData.text = newWish;
+            if (color) wishData.color = color;
+
+            if (imgFile) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    wishData.img.src = e.target.result;
+                    wishData.img.name = imgFile.name;
+                    saveWishData(); // Lưu sau khi ảnh được tải
+                    
+                    // Cập nhật thông tin ảnh
+                    updateImageInfo();
+                    
+                    document.getElementById("adminMsg").innerText = "✅ Đã cập nhật nội dung và hình ảnh thành công!";
+                    
+                    // Reset file input
+                    document.getElementById("imgInput").value = "";
+                    document.getElementById("fileName").textContent = "";
+                }
+                reader.readAsDataURL(imgFile);
+            } else {
+                saveWishData();
+                document.getElementById("adminMsg").innerText = "✅ Đã cập nhật nội dung thành công!";
+            }
+            
+            // Hiển thị xem trước
+            showWish();
+        }
+
+        function resetWish() {
+            wishData = {
+                text: "Nhân ngày Nhà giáo Việt Nam 20/11, tập thể lớp 9A6 xin gửi đến thầy Quang lời tri ân sâu sắc nhất. Thầy không chỉ là người truyền đạt tri thức mà còn là người cha, người thầy thứ hai, luôn dìu dắt, nâng đỡ chúng em trên từng bước đường. Những bài học quý báu, những lời động viên chân thành, và cả những nghiêm khắc cần thiết đã giúp chúng em trưởng thành hơn mỗi ngày. Kính chúc thầy luôn dồi dào sức khỏe, tràn đầy niềm vui và hạnh phúc, tiếp tục thắp sáng những ước mơ cho thế hệ trẻ Việt Nam.",
+                color: "#b22222",
+                img: {src: "", name: ""}
+            };
+            
+            // Cập nhật form
+            document.getElementById("wishInput").value = wishData.text;
+            document.getElementById("colorInput").value = wishData.color;
+            
+            // Reset ảnh
+            document.getElementById("imagePreview").style.display = "none";
+            document.getElementById("fileName").textContent = "";
+            document.getElementById("imgInput").value = "";
+            
+            // Cập nhật thông tin ảnh
+            updateImageInfo();
+            
+            saveWishData();
+            document.getElementById("adminMsg").innerText = "🔄 Đã khôi phục nội dung về mặc định!";
+            
+            // Hiển thị xem trước
+            showWish();
+        }
+
+        function removeImage() {
+            wishData.img = {src: "", name: ""};
+            
+            // Cập nhật giao diện
+            document.getElementById("imagePreview").style.display = "none";
+            document.getElementById("fileName").textContent = "";
+            document.getElementById("imgInput").value = "";
+            
+            // Cập nhật thông tin ảnh
+            updateImageInfo();
+            
+            saveWishData();
+            document.getElementById("adminMsg").innerText = "🗑️ Đã xóa hình ảnh thành công!";
+            
+            // Hiển thị xem trước
+            showWish();
+        }
+    </script>
+</body>
+</html>
